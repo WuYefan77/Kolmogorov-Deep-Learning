@@ -1,6 +1,6 @@
 # Deep Learning Approximation of Kolmogorov PDEs
 
-## An SF2525-style numerical study of SDE simulation, Feynman–Kac, finite differences, and amortized neural solvers
+## A numerical study of SDE simulation, Feynman–Kac, finite differences, and amortized neural solvers
 
 ### Abstract
 
