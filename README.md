@@ -104,4 +104,3 @@ jupyter lab
 
 - C. Beck, S. Becker, P. Grohs, N. Jaafari, and A. Jentzen, *Solving the Kolmogorov PDE by means of deep learning*, Journal of Scientific Computing 88 (2021); arXiv:1806.00421.
 - F. Black and M. Scholes, *The Pricing of Options and Corporate Liabilities*, Journal of Political Economy 81(3), 1973.
-```
