@@ -1,0 +1,28 @@
+{
+  "task1": {
+    "strong_slope": 0.5071897274294991,
+    "weak_slope_p1": 0.9982242650832368,
+    "weak_slope_p2": 0.9957918059888476
+  },
+  "task2": {
+    "mc_slope": -0.4998538878683512,
+    "bs_truth_at_100": 10.450583572185565,
+    "mc_rmse_N100000": 0.0460914585734354
+  },
+  "task3": {
+    "fd_finest_mae": 0.000952559105128,
+    "fd_finest_rmse": 0.0012817992418112,
+    "fd_finest_max_abs": 0.0024982667877342
+  },
+  "task4": {
+    "neural_mae": 0.06502305156225435,
+    "neural_rmse": 0.08170119882397131,
+    "neural_relative_l2": 0.0033722385124704186,
+    "neural_max_abs": 0.28718786200079904
+  },
+  "task5": {
+    "basket_d50_relative_l2": 0.0127965157565832,
+    "max_d50_relative_l2": 0.0205036021772656,
+    "basket_1d_break_even_queries_est": 10563.325407038235
+  }
+}
