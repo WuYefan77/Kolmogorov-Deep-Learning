@@ -6,15 +6,15 @@ An independent numerical machine-learning project connecting stochastic differen
 
 For the risk-neutral geometric Brownian motion
 
-\[
+$$
 dS_t=rS_t\,dt+\sigma S_t\,dW_t,
-\]
+$$
 
 the Black–Scholes call value is
 
-\[
-V(0,S)=e^{-rT}\,\mathbb E[(S_T-K)^+\mid S_0=S].
-\]
+$$
+V(0,S)=e^{-rT}\,\mathbb{E}[(S_T-K)^+\mid S_0=S].
+$$
 
 Instead of estimating this expectation separately at every initial state, the project samples initial conditions and stochastic terminal payoffs, then fits a neural network by squared loss. The population minimizer is the conditional expectation, so the network learns an amortized approximation of the whole solution surface.
 
