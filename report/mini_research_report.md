@@ -157,5 +157,4 @@ The resulting interpretation is deliberately conservative. The neural network is
 ## References
 
 1. C. Beck, S. Becker, P. Grohs, N. Jaafari, and A. Jentzen, “Solving the Kolmogorov PDE by means of deep learning,” *Journal of Scientific Computing*, 88, 2021.
-2. KTH Royal Institute of Technology, **SF2525 Computational Methods for Stochastic Differential Equations and Machine Learning**.
-3. F. Black and M. Scholes, “The Pricing of Options and Corporate Liabilities,” *Journal of Political Economy*, 81(3), 1973.
+2. F. Black and M. Scholes, “The Pricing of Options and Corporate Liabilities,” *Journal of Political Economy*, 81(3), 1973.

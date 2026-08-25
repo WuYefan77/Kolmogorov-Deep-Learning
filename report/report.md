@@ -154,5 +154,4 @@ The most important conceptual result is the change from pointwise estimation to 
 ## References
 
 1. C. Beck, S. Becker, P. Grohs, N. Jaafari, A. Jentzen, **Solving the Kolmogorov PDE by means of deep learning**, *Journal of Scientific Computing* 88 (2021), arXiv:1806.00421.
-2. KTH, **SF2525 Computational Methods for Stochastic Differential Equations and Machine Learning**, course syllabus and course information.
-3. F. Black and M. Scholes, **The Pricing of Options and Corporate Liabilities**, *Journal of Political Economy* 81(3), 1973.
+2. F. Black and M. Scholes, **The Pricing of Options and Corporate Liabilities**, *Journal of Political Economy* 81(3), 1973.

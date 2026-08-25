@@ -55,8 +55,11 @@ def task2():
     savefig("03_mc_convergence.png")
     est, se = mc_call_price(100, **PARAMS, n_paths=100_000, seed=42, antithetic=True)
     truth = float(black_scholes_call(100, **PARAMS))
-    return {"mc_slope": float(mc.fitted_slope.iloc[0]), "mc_100k_estimate": est,
-            "mc_100k_se": se, "bs_truth_at_100": truth}
+    return {
+        "mc_slope": float(mc.fitted_slope.iloc[0]),
+        "bs_truth_at_100": truth,
+        "mc_rmse_N100000": float(mc.loc[mc.n_paths == 100_000, "rmse"].iloc[0]),
+    }
 
 
 def task3():
@@ -83,8 +86,11 @@ def task3():
     plt.figure(figsize=(6,4)); plt.semilogy(np.arange(len(stable_hist)),stable_hist,label="stable: 2000 time steps"); plt.semilogy(np.arange(len(unstable_hist)),unstable_hist,label="unstable: 50 time steps")
     plt.xlabel("explicit time step"); plt.ylabel("max |V|"); plt.legend(); plt.grid(True,alpha=.25)
     savefig("05_explicit_stability.png")
-    return {"fd_finest_mae": rows[-1]["mae"], "fd_finest_rmse": rows[-1]["rmse"],
-            "explicit_unstable_max": float(np.max(unstable_hist))}
+    return {
+        "fd_finest_mae": rows[-1]["mae"],
+        "fd_finest_rmse": rows[-1]["rmse"],
+        "fd_finest_max_abs": rows[-1]["max_abs_error"],
+    }
 
 
 def task4():
@@ -107,7 +113,7 @@ def task4():
     plt.figure(figsize=(6,4)); plt.semilogy(tr.history.step,tr.history.rmse_price_batch)
     plt.xlabel("SGD step"); plt.ylabel("batch RMSE in price units"); plt.grid(True,alpha=.25)
     savefig("07_neural_training_curve.png")
-    return {"train_seconds":tr.train_seconds,**{f"neural_{k}":v for k,v in met.items()}},tr.model
+    return {f"neural_{k}": v for k, v in met.items()}, tr.model
 
 
 def task5():
@@ -153,9 +159,15 @@ def task5():
     if np.isfinite(row.break_even_queries_est): plt.axvline(row.break_even_queries_est,ls="--",label=f"estimated break-even {row.break_even_queries_est:,.0f}")
     plt.xlabel("number of queried initial states Q"); plt.ylabel("estimated total seconds"); plt.legend(); plt.grid(True,which="both",alpha=.25)
     savefig("09_amortized_runtime.png")
-    return {"dimension_rows":len(out),"basket_d50_rel_l2":float(out[(out.payoff=="basket")&(out.dimension==50)].relative_l2.iloc[0]),
-            "max_d50_rel_l2":float(out[(out.payoff=="max")&(out.dimension==50)].relative_l2.iloc[0]),
-            "break_even_1d_queries":float(row.break_even_queries_est)}
+    return {
+        "basket_d50_relative_l2": float(
+            out[(out.payoff == "basket") & (out.dimension == 50)].relative_l2.iloc[0]
+        ),
+        "max_d50_relative_l2": float(
+            out[(out.payoff == "max") & (out.dimension == 50)].relative_l2.iloc[0]
+        ),
+        "basket_1d_break_even_queries_est": float(row.break_even_queries_est),
+    }
 
 
 def main():
