@@ -1,1 +1,1 @@
-"""Numerical methods for the SF2525-style Kolmogorov PDE project."""
+"""Numerical methods for deep-learning approximation of Kolmogorov PDEs."""
