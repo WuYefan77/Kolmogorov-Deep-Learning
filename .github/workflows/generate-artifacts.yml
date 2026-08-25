@@ -1,0 +1,48 @@
+name: Generate numerical artifacts
+
+on:
+  push:
+    paths:
+      - 'run_experiments.py'
+      - 'src/**'
+      - '.github/workflows/generate-artifacts.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest -q
+
+      - name: Reproduce experiments
+        run: python run_experiments.py
+
+      - name: Keep committed reference tables and stage generated binary artifacts
+        run: |
+          git restore results || true
+          rm -f results/task5_dimension_scaling_partial.csv
+          git add figures results/task4_neural_fk_state.pt
+          if git diff --cached --quiet; then
+            echo 'Generated artifacts already match the repository.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Generate figures and neural checkpoint [skip ci]'
+          git push
