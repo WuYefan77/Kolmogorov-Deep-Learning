@@ -100,6 +100,10 @@ jupyter lab
 - Neural-versus-Monte-Carlo runtime is treated as an amortization question, not as a claim that a trained network is cheaper than a single Monte Carlo price.
 - High-dimensional results are controlled numerical examples, not evidence of dimension-independent complexity.
 
+## License and automated checks
+
+Source code is released under the [MIT License](LICENSE). Pushes and pull requests run the unit tests; full experiment reproduction is available as a manually triggered GitHub Actions workflow.
+
 ## References
 
 - C. Beck, S. Becker, P. Grohs, N. Jaafari, and A. Jentzen, *Solving the Kolmogorov PDE by means of deep learning*, Journal of Scientific Computing 88 (2021); arXiv:1806.00421.
